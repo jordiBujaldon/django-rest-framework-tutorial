@@ -24,6 +24,3 @@ class PostDetail(generics.RetrieveUpdateDestroyAPIView, PostUserWritePermission)
     queryset = Post.objects.all()
     serializer_class = PostSerializer
     permission_classes = [PostUserWritePermission]
-
-    def test(self):
-        pass
