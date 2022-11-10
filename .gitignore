@@ -1,0 +1,4 @@
+htmlcov/
+venv/
+.coverage
+db.sqlite3

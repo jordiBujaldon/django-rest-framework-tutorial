@@ -90,5 +90,3 @@ class TestPostAPI(APITestCase):
         response = client.put(url, data, format='json')
         # Assert
         self.assertEqual(response.status_code, status.HTTP_403_FORBIDDEN)
-
-
