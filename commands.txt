@@ -1,0 +1,11 @@
+python manage.py makemigrations --dry-run --verbosity 3 --> En el cas de que hi hagi problemes al migrar
+
+python manage.py runserver
+
+python manage.py createsuperuser
+
+pip install coverage
+
+coverage run --omit='*/venv/*' manage.py test --> Executa els tests de Django
+
+coverage html --> Per crear htmlcov/index.html i veure el % de test creat
