@@ -1,4 +1,8 @@
 from django.test import TestCase
+from django.urls import reverse
+
+from rest_framework import status
+from rest_framework.test import APITestCase
 
 from users.models import CustomUser
 
@@ -26,3 +30,15 @@ class CustomUserModelTest(TestCase):
     def test_user_email_not_provided(self):
         with self.assertRaises(ValueError):
             CustomUser.objects.create_user(email='', user_name='user', first_name='', password='1234', is_staff=False)
+
+
+class CustomUserAPI(APITestCase):
+    def test_register_user(self):
+        url = reverse('users:create_user')
+        data = {
+            "email": "user@user.com",
+            "user_name": "user",
+            "password": "user"
+        }
+        response = self.client.post(url, data, format='json')
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
