@@ -2,6 +2,8 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.utils import timezone
 
+from users.models import CustomUser
+
 
 class Category(models.Model):
     name = models.CharField(max_length=100)
@@ -26,7 +28,7 @@ class Post(models.Model):
     published = models.DateTimeField(default=timezone.now)
     status = models.CharField(max_length=10, choices=options, default='published')
     category = models.ForeignKey(Category, on_delete=models.PROTECT, default=1)
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name='posts')
+    author = models.ForeignKey(CustomUser, on_delete=models.CASCADE, related_name='posts')
     objects = models.Manager()
     post_objects = PostObjects()
 
