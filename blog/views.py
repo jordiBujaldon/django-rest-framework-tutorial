@@ -2,7 +2,7 @@ from blog.models import Post
 from blog.serializers import PostSerializer
 
 from rest_framework import generics
-from rest_framework.permissions import BasePermission, IsAuthenticatedOrReadOnly, SAFE_METHODS
+from rest_framework.permissions import BasePermission, SAFE_METHODS
 
 
 class PostUserWritePermission(BasePermission):
